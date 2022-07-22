@@ -31,18 +31,16 @@ Expression *Parser::parse_expression(int min_precedence)
 Expression *Parser::parse_literal()
 {
 
-   token::Token tok = lexer.peek();
+   token::Token tok = lexer.advance();
    switch (tok.type)
    {
    case token::NUMBER:
    {
-      lexer.advance();
       return new NumberExpression{tok.value};
    }
    case token::LPARENTESIS:
    {
       Expression *exp;
-      lexer.advance();
       exp = parse_expression(-1);
       lexer.advance();
       return exp;
@@ -51,7 +49,6 @@ Expression *Parser::parse_literal()
    case token::SUB:
    case token::ADD:
    {
-      lexer.advance();
       return new UnaryExpression{get_unary_operator_from_token(tok.type), parse_literal()};
    }
    }

@@ -1,19 +1,13 @@
 #include "lexer.hh"
 #include <string>
-Lexer::Lexer(std::string str)
-{
-   this->str = str;
-   i = 0;
-   token_buffer = std::deque<token::Token>{};
-}
+Lexer::Lexer(std::string str): str(str), i(0), token_buffer({}) {}
 
 // advances lexer and returns current token.
 token::Token Lexer::advance()
 {
    if (token_buffer.size() == 0)
-   {
       scan_token();
-   }
+
    token::Token ret = token_buffer.front();
    token_buffer.pop_front();
    return ret;
@@ -23,9 +17,8 @@ token::Token Lexer::advance()
 token::Token Lexer::peek()
 {
    if (token_buffer.size() == 0)
-   {
       scan_token();
-   }
+
    return token_buffer.front();
 }
 
@@ -33,9 +26,8 @@ token::Token Lexer::peek()
 token::Token Lexer::peek(int i)
 {
    while (token_buffer.size() < i)
-   {
       scan_token();
-   }
+
    return token_buffer[i];
 }
 
@@ -72,9 +64,8 @@ double Lexer::scan_number()
 {
    std::string aux{};
    while (is_digit(str[i]) || str[i] == '.' || str[i] == 'e')
-   {
       aux += str[i++];
-   }
+
    return std::stod(aux);
 }
 
@@ -108,9 +99,7 @@ token::TokenType Lexer::scan_operator()
 void Lexer::advance_whitespaces()
 {
    while (is_whitespace(str[i]))
-   {
       i++;
-   }
 }
 
 inline bool Lexer::is_whitespace(char c)

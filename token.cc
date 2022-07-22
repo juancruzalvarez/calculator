@@ -54,13 +54,9 @@ namespace token
    std::string token_to_str(Token token)
    {
       if (token.type == NUMBER)
-      {
          return "Num: " + std::to_string(token.value);
-      }
       else
-      {
          return token_type_to_str(token.type);
-      }
    }
 
 };
