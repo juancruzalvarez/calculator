@@ -6,19 +6,17 @@
 #include "lexer.hh"
 #include "expression.hh"
 
-
-class Parser{
+class Parser
+{
 public:
-    Parser(Lexer lexer);
-    Expression* parse();
+   Parser(Lexer lexer);
+   Expression *parse();
+
 private:
-    Lexer lexer;
-    Expression* parse_expression(int current_precedence);
-    Expression* parse_literal();
-    bool match(std::vector<token::TokenType> types, token::Token &tok);
-
-
+   Lexer lexer;
+   Expression *parse_expression(int current_precedence);
+   Expression *parse_literal();
+   bool match(std::vector<token::TokenType> types, token::Token &tok);
 };
-
 
 #endif

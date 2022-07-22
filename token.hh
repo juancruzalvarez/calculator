@@ -3,36 +3,36 @@
 
 #include <string>
 
-namespace token{
+namespace token
+{
 
-    //types of tokens
-    enum TokenType{
-        TOK_EOF,
-        TOK_INVALID,
-        NUMBER,
-        ADD,
-        SUB,
-        MULT,
-        DIV,
-        POW,
-        LPARENTESIS,
-        RPARENTESIS
-    };
+   // types of tokens
+   enum TokenType
+   {
+      TOK_EOF,
+      TOK_INVALID,
+      NUMBER,
+      ADD,
+      SUB,
+      MULT,
+      DIV,
+      POW,
+      LPARENTESIS,
+      RPARENTESIS
+   };
 
-    struct Token{
-        TokenType type;
-        double value;
-    };
+   struct Token
+   {
+      TokenType type;
+      double value;
+   };
 
-    //returns a string representation of the given type of token.
-    std::string token_type_to_str(TokenType type);
+   // returns a string representation of the given type of token.
+   std::string token_type_to_str(TokenType type);
 
-    //returns string representation of a token.
-    std::string token_to_str(Token token);
-   
+   // returns string representation of a token.
+   std::string token_to_str(Token token);
 
 };
-
-
 
 #endif
