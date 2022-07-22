@@ -15,7 +15,7 @@ private:
     Lexer lexer;
     Expression* parse_expression(int current_precedence);
     Expression* parse_literal();
-    bool match(std::vector<token::TokenType> types, token::Token &tok){
+    bool match(std::vector<token::TokenType> types, token::Token &tok);
 
 
 };

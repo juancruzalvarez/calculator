@@ -4,7 +4,7 @@
 #include "token.hh"
 
 int main(){
-    std::string test = "58 + 3* 2.4-(5*3-2+8)";
+    std::string test = "58 + 3* 2.4-(5*3-2+8)  ";
     Lexer lexer{test};
     token::Token tok;
     std::cout<<"Lexer started." << "\n";

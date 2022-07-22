@@ -14,6 +14,8 @@ public:
     token::Token peek();
     //returns the ith next token without advancing the lexer.
     token::Token peek(int i);
+    //puts token back to the front of the token buffer.
+    void unget(token::Token tok);
 private:
     std::string str;
     int i;
